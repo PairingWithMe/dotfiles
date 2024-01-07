@@ -31,5 +31,4 @@ vim.opt.isfname:append({ "@-@" })
 vim.opt.colorcolumn = "120"
 
 vim.opt.updatetime = 50
-
-vim.api.nvim_exec([[ au BufNewFile,BufRead,BufReadPost *.aux4 set syntax=json ]], false)
+vim.opt.clipboard = "unnamedplus"
