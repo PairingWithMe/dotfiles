@@ -9,6 +9,11 @@
     "body": "{\n\t\"name\": \"$1\",\n\t\"commands\": [\n\t\t$2\n\t]\n}",
     "description": "aux4 profile"
   },
+  "aux4 main profile": {
+    "prefix": "main",
+    "body": "{\n\t\"name\": \"main\",\n\t\"commands\": [\n\t\t$1\n\t]\n}",
+    "description": "aux4 main profile"
+  },
   "aux4 command": {
     "prefix": "cmd",
     "body": "{\n\t\"name\": \"$1\",\n\t\"execute\": [\n\t\t\"$2\"\n\t],\n\t\"help\": {\n\t\t\"text\": \"$3\"\n\t}\n}",
