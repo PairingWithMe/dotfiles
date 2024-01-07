@@ -1,0 +1,11 @@
+/*
+
+!.gitignore
+!nvim/
+!tmux/
+!starship.toml
+!README.md
+
+nvim/plugin/
+tmux/plugins/
+
