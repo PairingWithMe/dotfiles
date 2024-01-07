@@ -1,0 +1,27 @@
+{
+  "aux4 file": {
+    "prefix": "aux4",
+    "body": "{\n\t\"profiles\": [\n\t\t$1\n\t]\n}",
+    "description": "aux4 file"
+  },
+  "aux4 profile": {
+    "prefix": "prf",
+    "body": "{\n\t\"name\": \"$1\",\n\t\"commands\": [\n\t\t$2\n\t]\n}",
+    "description": "aux4 profile"
+  },
+  "aux4 command": {
+    "prefix": "cmd",
+    "body": "{\n\t\"name\": \"$1\",\n\t\"execute\": [\n\t\t\"$2\"\n\t],\n\t\"help\": {\n\t\t\"text\": \"$3\"\n\t}\n}",
+    "description": "aux4 command"
+  },
+  "aux4 variables": {
+    "prefix": "vars",
+    "body": "\"variables\": [\n\t$1\n]",
+    "description": "aux4 variables"
+  },
+  "aux4 variable": {
+    "prefix": "var",
+    "body": "{\n\t\"name\": \"$1\",\n\t\"text\": \"$2\"\n}",
+    "description": "aux4 variable"
+  }
+}

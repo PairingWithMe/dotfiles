@@ -1,0 +1,14 @@
+{
+  "name": "PairingWithMe",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": ["json", "markdown"],
+        "path": "./aux4.json"
+      }
+    ]
+  }
+}
