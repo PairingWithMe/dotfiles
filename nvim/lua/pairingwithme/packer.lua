@@ -44,6 +44,6 @@ return require('packer').startup(function(use)
     }
   }
 
+  use('aux4/vim')
   use("github/copilot.vim")
-  use("ThePrimeagen/vim-be-good")
 end)

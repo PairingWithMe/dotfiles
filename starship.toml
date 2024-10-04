@@ -11,6 +11,10 @@ right_format = """$all"""
 style_user = "bold dimmed blue"
 show_always = false
 
+[cmd_duration]
+show_milliseconds = true
+min_time = 0
+
 [aws]
 format = 'on [$symbol($profile )(\($region\) )]($style)'
 style = 'bold blue'
