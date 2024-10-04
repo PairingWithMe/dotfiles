@@ -32,3 +32,10 @@ vim.opt.colorcolumn = "120"
 
 vim.opt.updatetime = 50
 vim.opt.clipboard = "unnamedplus"
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.g.markdown_fenced_languages = { 'html', 'json', 'javascript', 'js=javascript', 'hcl=terraform', 'go', 'yaml', 'css' }
+  end
+})

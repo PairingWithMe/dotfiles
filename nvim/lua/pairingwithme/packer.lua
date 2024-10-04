@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
   use('neovim/nvim-lspconfig')
   use('jose-elias-alvarez/null-ls.nvim')
   use('MunifTanjim/prettier.nvim')
+  use('hashivim/vim-terraform')
 
   use('mbbill/undotree')
   use({ 'rose-pine/neovim', as = 'rose-pine' })
@@ -31,16 +32,16 @@ return require('packer').startup(function(use)
       { 'neovim/nvim-lspconfig' },
 
       -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-buffer'},
-		  {'hrsh7th/cmp-path'},
-		  {'saadparwaiz1/cmp_luasnip'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'hrsh7th/cmp-nvim-lua'},
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
     }
   }
 
