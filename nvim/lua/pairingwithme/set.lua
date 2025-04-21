@@ -37,5 +37,9 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     vim.g.markdown_fenced_languages = { 'html', 'json', 'javascript', 'js=javascript', 'hcl=terraform', 'go', 'yaml', 'css' }
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.expandtab = true
   end
 })
