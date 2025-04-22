@@ -1,4 +1,4 @@
-require("pairingwithme.packer")
+require("config.lazy")
 require("pairingwithme.set")
 require("pairingwithme.remap")
 
