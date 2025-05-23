@@ -6,19 +6,36 @@ return {
   },
   { 'nvim-lua/plenary.nvim' },
   { 'neovim/nvim-lspconfig' },
-  { 'MunifTanjim/prettier.nvim' },
   { 'hashivim/vim-terraform' },
 
   { 'mbbill/undotree' },
   { 'rose-pine/neovim' },
-  { 'theprimeagen/harpoon' },
   { 'tpope/vim-fugitive' },
-
   {
     'VonHeikemen/lsp-zero.nvim'
   },
-  { 'williamboman/mason.nvim' },
+  { 'williamboman/mason.nvim',          build = ":MasonUpdate", config = true },
   { 'williamboman/mason-lspconfig.nvim' },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "nvimtools/none-ls.nvim",
+    },
+    config = function()
+      local null_ls = require("null-ls")
+      require("mason-null-ls").setup({
+        ensure_installed = { "prettier" },
+        automatic_installation = true,
+      })
+
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.prettier,
+        },
+      })
+    end,
+  },
 
   { 'neovim/nvim-lspconfig' },
 

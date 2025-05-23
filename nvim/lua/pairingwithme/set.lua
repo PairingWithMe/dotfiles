@@ -43,3 +43,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.expandtab = true
   end
 })
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  severity_sort = true,
+})

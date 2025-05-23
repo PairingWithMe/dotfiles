@@ -1,21 +1,10 @@
-local prettier = require("prettier")
+vim.keymap.set('n', '<leader>fp', function() 
+  vim.lsp.buf.format()
+end)
 
-prettier.setup({
-  bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
-  filetypes = {
-    "css",
-    "graphql",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "less",
-    "markdown",
-    "scss",
-    "typescript",
-    "typescriptreact",
-    "yaml",
-  },
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.js", "*.ts", "*.json", "*.css", "*.md" },
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end,
 })
-
-vim.keymap.set('n', '<leader>fp', prettier.format, {})

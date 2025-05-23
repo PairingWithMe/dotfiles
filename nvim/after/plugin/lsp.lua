@@ -1,10 +1,11 @@
 local lsp_zero = require('lsp-zero')
-
+local util = require("lspconfig.util")
+local lspconfig = require('lspconfig')
 
 lsp_zero.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
-  lsp_zero.default_keymaps({buffer=bufnr})
+  lsp_zero.default_keymaps({ buffer = bufnr })
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -25,21 +26,37 @@ require('mason-lspconfig').setup({
   ensure_installed = {},
   handlers = {
     lsp_zero.default_setup,
+
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+
+    eslint = function()
+      local project_root = util.find_node_modules_ancestor(vim.fn.getcwd())
+      local eslint_bin = project_root and project_root .. "/node_modules/.bin/eslint"
+
+      if eslint_bin and vim.fn.filereadable(eslint_bin) == 1 then
+        lspconfig.eslint.setup({
+          cmd = { eslint_bin, "--stdio" },
+          root_dir = project_root,
+        })
+      else
+        -- Optionally print a debug message (only for troubleshooting)
+        -- vim.notify("[lspconfig] Skipping ESLint: not found in node_modules")
+      end
     end,
   }
 })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
   sources = {
-    {name = 'path'},
-    {name = 'nvim_lsp'},
-    {name = 'nvim_lua'},
+    { name = 'path' },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
@@ -49,4 +66,3 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })
-
